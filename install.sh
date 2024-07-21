@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Variables
 shell="$(echo "$SHELL" | tr "/" " " | awk '{print$NF}')"
