@@ -4,6 +4,8 @@
 HTB_PATH="$HOME/htb"
 name_file="$1"
 file_path="$HOME/htb/$name_file"
+machine_directory=("nmap" "bloodhound" "exploits" "ldap" "smb" "other")
+
 
 #Funciones
 function createFile() {
@@ -13,8 +15,17 @@ function createFile() {
 
   else
 
-    mkdir -p $file_path && echo -e "\n> Directory '$name_file' created\n" && cd $file_path
-  
+    mkdir -p $file_path && echo -e "\n> Directory '$name_file' created\n"
+    
+    sleep 0.1
+      
+    for directory in "${machine_directory[@]}"; do
+      mkdir -p "$file_path/$directory"
+      echo "Creada la carpeta: $directory"
+    done
+
+    cd "$file_path"
+
   fi
 }
 
